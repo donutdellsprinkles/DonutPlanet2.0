@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>Donut Planet</title>
+    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/thumbs/120/twitter/348/doughnut_1f369.png">
+</head>
+<body>
+<div id="activity"> 
+    <h1 id="news">NEWS</h1>
+    <p id="textwhite">Visit The Donut Blog for Extensive News on Donut Planet</p>
+    <button class="button" onclick="window.location.href='DonutBlog.html';">Donut into Donut Blog</button>
+    <p id="textwhite">0 This is version 1.4 of Donut Planet</p>
+    <button class="button"  onclick="window.location.href='https://donut-chat-2.donutdellsprinkles.repl.co/';">Open Donut Chat Separately</button> 
+    <br>
+    <br>
+    <button class="button"  onclick="window.location.href='donutclicker.html';">Open Clicknut Confectionery</button>      
+   <!--
+<button id="show">Notice</button>
+   <iframe id="notice" src="https://donutnotice.donutdellsprinkles.repl.co/" width="100%" height="85%" frameborder="0"></iframe>
+     -->  
+</div>
+    <!--
+        <input id="create"  type="text" name="search" placeholder="Create a Post">
+        <button id="send">Post</button> 
+        <div id="view"></div>
+    --> 
+    <button id="goprofile" onclick="window.location.href='homelounge.html';">
+        <svg width="20px" height="20px" viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1_2)">
+            <path d="M224 256C257.948 256 290.505 242.514 314.51 218.51C338.514 194.505 352 161.948 352 128C352 94.0523 338.514 61.495 314.51 37.4903C290.505 13.4857 257.948 0 224 0C190.052 0 157.495 13.4857 133.49 37.4903C109.486 61.495 96 94.0523 96 128C96 161.948 109.486 194.505 133.49 218.51C157.495 242.514 190.052 256 224 256ZM178.3 304C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3C434.7 512 448 498.7 448 482.3C448 383.8 368.2 304 269.7 304H178.3Z" fill="black"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1_2">
+            <rect width="448" height="512" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+            
+    </button>
+    <div id="profile">
+        <iframe style="overflow-x: hidden;" src="pfp.html"  height="460px" frameborder="0"></iframe>
+        <div>
+            <button class="button" onclick="openTab()">Take me There!</button>    
+     
+        </div>
+      </div>
+    <div id="post">
+        <iframe src="https://donut-chat-2.donutdellsprinkles.repl.co/" width="475px" height="750px" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+</body>
+<script>
+    //var buttonPost = document.getElementById('send');
+//buttonPost.onclick =()=> {
+    //const div = document.createElement('div');
+    //document.getElementById("view").appendChild(div);
+    //div.style.padding = "10px"
+   // const Image = document.createElement('img');
+   // Image.src = "https://lh3.googleusercontent.com/10YZhxggsuMCLrxrbOsVad2lSCXRvtYBBbZR890FDS5RZg-IfZM6SQjlwV0scWLRSx0IHuH8rJEVS35C445VGC_fV_aNkpexf5_7D7JhPHS5x6B7NagJEVO1cWwUMYLZgPgrNI66vg=w2400";
+ //   Image.style.width = "40px";
+ //   Image.style.height = "40px";
+  //  const Post = document.createElement('h1');
+   // Post.style.color = "white";
+   // Post.innerHTML = document.getElementById('create').value;
+   // const Name = document.createElement('h1');
+   // Name.innerHTML = "○Donut"
+   // Name.style.color = "black";
+   // Name.style.float = "left"
+   // Name.style.padding = "5px"
+   // div.appendChild(Image);
+   // div.appendChild(Name);
+   // div.appendChild(Post);
+    
+    
+//}
+
+//var buttonshow = document.getElementById('show');
+//buttonshow.onclick =()=> {
+    //var frame = document.getElementById('notice');
+   // frame.style.display = "block";
+//}
+//buttonshow.ondblclick =()=> {
+  //  var frame = document.getElementById('notice');
+   // frame.style.display = 'none';
+//}
+
+
+function openTab() {
+    window.open("https://donutnotice-1.donutdellsprinkles.repl.co/", "_blank");
+    }
+</script>
+<style>
+     #goprofile {
+        height: 20px;
+        width: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;    
+        position: absolute;
+        right: 15%;
+        top: 3%;
+    }
+    .button {
+        border: none;
+        border-radius: 5px;
+        font-family: Simp;
+        background-color: #DDCFFF;
+        color: #040de1;
+        cursor: pointer;
+        transition: all .2s ease;
+    }
+    .button:hover {
+        background-color: #040de1;
+        color: #DDCFFF;
+        transition: all .2s ease;
+        border-radius: 10px;
+    }
+    #news {
+        font-family: Simp;
+        animation: colorChange 2s linear infinite;
+    }
+    @keyframes colorChange {
+        0% { color: #FFCDB4; } /* Pink */
+        25% { color: #FFE6AC; } /* Light Orange */
+        50% { color: #FFAF80; } /* Dark Orange */
+        75% { color: #FF9AA2; } /* Red */
+        100% { color: #FFD1DC; } /* Light Pink */
+      }
+    @font-face {
+    font-family: Simp;
+    src: url(simpson.otf)
+}
+     #textwhite {
+        font-family: Simp;
+        color:azure;
+     }
+    body {
+        background-color: #F88379;
+      
+        
+    }
+    #create {
+        height: 110px;
+        width: 400px;
+    }
+    #send {
+        height: 110px;
+    }
+    #post {
+        margin: auto;
+        width: 40%;
+        padding: 10px;
+        height: 100%;
+
+    }
+    #activity {
+        height: 100%;
+        width: 25%;
+        position: absolute;
+        padding-left: 10px;
+       
+    }
+    #notice {
+        display: none;
+        transition: all .4s ease;
+    }
+    #weather {
+        height: 290px;
+        display: none;
+        transition: all .4s ease;
+    }
+    #profile {
+        height: 100%;
+        float: right;
+        overflow: hidden;
+    
+    }
+</style>
+</html>

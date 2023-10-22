@@ -1,0 +1,9 @@
+- A visible X on the edit (done)
+- Add an event listener for sending messages (done)
+- change the position of the mini profile from right to left
+and put the news on the right (fixed)
+
+Update 1.1:
+Add donut servers
+Add pfps (done)
+Add Donut planets

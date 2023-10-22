@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>pfp</title>
+</head>
+<body>
+    <div id="main">
+        <button id="edit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
+        </button>
+            <div id="profile">
+            <div id="picture"></div>
+            <h1 id="name">Donut</h1>
+            <input id="changename" placeholder="Change name">
+            <textarea id="intro" readonly></textarea>
+            <input type="file" id="imageInput" accept="image/*" />
+        </div>
+        <h2 id="gallery">Donut Delight Gallery</h2>
+        <p id="textwhite">Explore What the people of donut planet have to share visually!</p>
+
+        
+    </div>
+</body>
+
+<style>
+    #textwhite {
+        font-family: Simp;
+        color:azure;
+     }
+    @font-face {
+    font-family: Simp;
+    src: url(simpson.otf)
+}
+    #gallery {
+        background-image: radial-gradient(#553c9a, #ee4b2b);
+        font-size: 15px;
+        font-weight: 900;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        font-family: Simp;
+    }
+    body {
+        background-color: #F88379;
+      
+    }
+    #changename {
+        display: none;
+    }
+     #name {
+        position: relative;
+        left: 5px;
+        font-family: Simp;
+        color: #02075d;
+        text-shadow: 0px 0px 9px #02075d;
+    }
+    #intro {
+        background-color: #ffff66;
+        padding-left: 40px;
+        width: 250px;
+        height: 100px;
+        border-radius: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(240, 8, 8, 0.3) 0px 18px 36px -18px inset;
+    }
+    #edit {
+        height: 30px;
+        width: 30px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;    
+    }
+    #picture {
+        height: 100px;
+        width: 100px;
+    }
+    #main {
+        background-color: #F88379;
+        width: 100%;
+        height: 100%;
+    }
+    #profile {
+        background-color: #ffebbf;
+    }
+    #imageInput {
+        display: none;
+    }
+</style>
+
+<script>
+
+function loadSavedstuff() {
+        noun = document.getElementById('name');
+        name = localStorage.getItem('name1');
+        noun.innerText = name;
+        intro = document.getElementById('intro');
+        intro.value = localStorage.getItem('description')
+    }
+
+loadSavedstuff()
+
+document.addEventListener('DOMContentLoaded', () => {
+    const imageInput = document.getElementById('imageInput');
+    const picture = document.getElementById('picture');
+    const loadButton = document.getElementById('loadButton');
+
+    imageInput.addEventListener('change', () => {
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            const imageUrl = event.target.result;
+            picture.style.backgroundImage = `url(${imageUrl})`;
+            picture.style.backgroundRepeat = 'no-repeat';
+            picture.style.backgroundSize = 'cover';
+            localStorage.setItem('savedImage', imageUrl);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    function loadImageFromLocalStorage() {
+        const savedImage = localStorage.getItem('profilepicture');
+        if (savedImage) {
+            picture.style.backgroundImage = `url(${savedImage})`;
+            picture.style.backgroundRepeat = 'no-repeat';
+            picture.style.backgroundSize = 'cover';
+        }
+    }
+
+    loadImageFromLocalStorage(); // Call the function directly on page load
+
+
+  
+
+   const edit = document.getElementById('edit');
+   edit.onclick =()=> {
+         //imageInput.style.display = 'block';
+        intro = document.getElementById('intro');
+        intro.removeAttribute('readonly');
+        intro.style.color = 'white';
+        //changename = document.getElementById('changename');
+        //changename.style.display = "block";
+   }
+   edit.ondblclick =()=> {
+        //imageInput.style.display = 'none';
+        intro = document.getElementById('intro');
+        intro.style.color = 'black'
+        description = intro.value;
+        localStorage.setItem('description', description)
+        intro.setAttribute('readonly', true);
+        //changename = document.getElementById('changename');
+        //name = changename.value;
+        //h1 = document.getElementById('name');
+        //h1.innerText = name;
+        //localStorage.setItem('name', name);
+        //changename.style.display = 'none';
+   }
+});
+</script>
+
+</html>

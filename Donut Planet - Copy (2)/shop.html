@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Point Checker</title>
+</head>
+<body>
+    <p id="points">300</p>
+    <button id="purchaseButton">Make Purchase 300</button>
+    <button id="purchasebutton2">Make Purchase 600</button>
+    <br>
+    <input type="text" id="codeInput" placeholder="Enter Code">
+    <button id="applyButton">Apply Code</button>
+    <br>
+    <h1 id="heading">Hello, World!</h1>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var pointsElement = document.getElementById('points');
+            var codeInputElement = document.getElementById('codeInput');
+            var applyButton = document.getElementById('applyButton');
+            var headingElement = document.getElementById('heading');
+            var points = parseInt(pointsElement.textContent);
+            var purchaseButton = document.getElementById('purchaseButton');
+            var purchasebutton2 = document.getElementById('purchasebutton2')
+            var code = '';
+
+            applyButton.addEventListener('click', function() {
+  var enteredCode = codeInputElement.value;
+  
+  // Check if the code has already been redeemed
+//  if (localStorage.getItem('codeRedeemed')) {
+  //  alert('Code has already been redeemed.');
+  //  return;
+ // }
+  
+  if (enteredCode.toLowerCase() === "donut" || enteredCode === "donut") {
+    points += 300;
+    pointsElement.textContent = points;
+  } else if (enteredCode === "donutdell") {
+    points += 600;
+  } else {
+    alert("Invalid code.");
+    return;
+  }
+  
+  // Store a flag indicating that the code has been redeemed
+  localStorage.setItem('codeRedeemed', true);
+});
+
+
+            purchasebutton2.addEventListener('click', function() {
+                if (points >= 600) {
+                    points -= 600;
+                    pointsElement.textContent = points;
+                    headingElement.style.color = 'red';
+                    localStorage.setItem('headingColor', 'red');
+            }})
+
+
+
+
+
+            purchaseButton.addEventListener('click', function() {
+                if (points >= 300) {
+                    points -= 300;
+                    pointsElement.textContent = points;
+
+                    // Generate random code
+                    code = generateCode();
+                    alert("You have made a purchase! You have " + points + " points remaining. Your code is: " + code);
+                } else {
+                    alert("You don't have enough points to make a purchase.");
+                }
+            });
+
+           
+});
+
+
+            // Check if heading color is saved in localStorage
+            var savedHeadingColor = localStorage.getItem('headingColor');
+            if (savedHeadingColor) {
+                headingElement.style.color = savedHeadingColor;
+            }
+
+            // Generate random code
+            function generateCode() {
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var codeLength = 6;
+                var code = '';
+
+                for (var i = 0; i < codeLength; i++) {
+                    var randomIndex = Math.floor(Math.random() * characters.length);
+                    code += characters.charAt(randomIndex);
+                }
+
+                return code;
+            }
+        ;
+    </script>
+</body>
+</html>

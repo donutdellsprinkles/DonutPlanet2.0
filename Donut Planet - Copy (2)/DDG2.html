@@ -1,0 +1,223 @@
+<html>
+<head>
+    <title>Donut Gallery</title>
+    <script src="https://kit.fontawesome.com/e6d4c486db.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/thumbs/120/twitter/348/doughnut_1f369.png">
+</head>
+<body>
+    <button id="back" onclick="window.location.href='website.html';">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+    </button>
+    <div id="card1"></div>
+    <div id="card2"></div>
+    <div id="card3"></div>
+    <button id="hover"><img style="width: 70px;" src="https://em-content.zobj.net/thumbs/120/twitter/351/doughnut_1f369.png"></button>
+    <button id="next" onclick="handleClick()"><img src="https://em-content.zobj.net/thumbs/60/microsoft/54/doughnut_1f369.png"></button>
+    <p id="creator">By Donut</p>
+</body>
+<style>
+      #back {
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+     @font-face {
+    font-family: Comic;
+    src: url(BoldlyMissy.otf)
+}
+    #creator {
+        font-family:Comic;
+        color: white;
+        text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+        font-size: 30px;
+        left: 610px;
+        top: 0px;
+        position: absolute;
+    }
+    body {
+        background: radial-gradient(#dd5e89, #f7bb97);
+    }
+    #next {
+        position: absolute; 
+        left: 675px;
+        top: 60px;
+        background-color: transparent;
+        border: none;
+        border-radius: 700px;
+        cursor: pointer;
+    }
+    #hover {
+        position: absolute;
+        left: 0;   
+        left: 590px;
+        top: 56px;
+        background-color: transparent;
+        border: none;
+        border-radius: 700px;
+        cursor: pointer;
+    }
+    #card1 {
+        background-image: url('https://wallpapers.com/images/hd/kanye-iphone-qqin8egdxd07ln1f.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 450px;
+        width: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        top: 180px;
+        transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+    }
+    #card2 {
+        background-image: url('https://i.pinimg.com/originals/e4/07/f1/e407f13e4691a24fb73b722cf7fc867f.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 450px;
+        width: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        top: 180px;
+        transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+       
+    }
+    #card3 {
+        background-image: url('https://wallpapercave.com/wp/wp5717294.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 450px;
+        width: 250px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        top: 180px;
+        transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+        
+    }
+    #card1:hover {
+        transform: translateX(100%) rotate(4deg);
+        
+    }
+    #card2:hover {
+        transform: translateX(-100%) rotate(-4deg); 
+    }
+</style>
+<script>
+    const button = document.getElementById("hover");
+
+    // Function to be executed when the mouse hovers over the button
+    function handleHover() {
+       document.getElementById('card1').style.transform = "translateX(-100%) rotate(-4deg)";
+       document.getElementById('card2').style.transform = "translateX(+100%) rotate(+4deg)";
+       document.getElementById('card3').style.transform = 'translateY(-1.5rem)';
+    }
+    function resetTransform() {
+        card1.style.transform = "none";
+        card2.style.transform = "none";
+        card3.style.transform = "none";
+    }
+    // Event listener for mouse hover
+    button.addEventListener("mouseenter", handleHover);
+    button.addEventListener("mouseleave", resetTransform);
+
+var clickCount = 0;
+
+function handleClick() {
+  clickCount++;
+
+  switch (clickCount) {
+    case 1:
+      // First click functionality
+      document.getElementById('card1').style.backgroundImage = "url('https://i.pinimg.com/originals/f8/08/7a/f8087a6539abc91b4ad4887a13b0f039.jpg')";
+      document.getElementById('card2').style.backgroundImage = "url('https://w0.peakpx.com/wallpaper/584/768/HD-wallpaper-kendrick-lamar-hip-hop-k-dot-kendrick-lamar-pink-purple-rap-sky-space.jpg')";
+      document.getElementById('card3').style.backgroundImage = "url('https://wallpaperaccess.com/full/7250502.jpg')";
+      document.getElementById('creator').innerText = 'By sprinkle';
+      break;
+
+    case 2:
+      // Second click functionality
+      document.getElementById('card1').style.backgroundImage = "url('https://i.pinimg.com/originals/ca/54/31/ca5431d56584d5daa9b0ffc0bfe4a575.png')";
+      document.getElementById('card2').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/297/940/desktop-wallpaper-jid-j-i-d.jpg')";
+      document.getElementById('card3').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/654/257/desktop-wallpaper-jid-maroon-j-i-d.jpg')";
+      document.getElementById('creator').innerText = 'By donutdell';
+      break;
+
+    case 3:
+      // Third click functionality
+      document.getElementById('card1').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/612/416/desktop-wallpaper-clb-drizzy-drake-clb-thumbnail.jpg')";
+      document.getElementById('card2').style.backgroundImage = "url('https://i.pinimg.com/736x/bf/72/df/bf72df218d4e6188e728aaa801df7914.jpg')";
+      document.getElementById('card3').style.backgroundImage = "url('https://wallpapers.com/images/hd/aesthetic-drake-1079-x-1746-vhodkdpzxwte8mgh.jpg')";
+      document.getElementById('creator').innerText = 'By Homer';
+      break;
+
+
+    case 4:
+        
+        document.getElementById('card1').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/210/535/desktop-wallpaper-childish-gambino.jpg')";
+        document.getElementById('card2').style.backgroundImage = "url('https://w0.peakpx.com/wallpaper/151/743/HD-wallpaper-aml-childish-gambino-donald-glover-gambino-thumbnail.jpg')";
+        document.getElementById('card3').style.backgroundImage = "url('https://wallpaperaccess.com/full/1266453.jpg')";
+        document.getElementById('creator').innerText = 'By Donut';
+        break;
+    
+        case 5:
+        
+        document.getElementById('card1').style.backgroundImage = "url('https://e1.pxfuel.com/desktop-wallpaper/836/801/desktop-wallpaper-concert-aesthetic-travis-scott-travis-scott-thumbnail.jpg')";
+        document.getElementById('card2').style.backgroundImage = "url('https://wallpaperaccess.com/full/781070.jpg')";
+        document.getElementById('card3').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/454/1012/desktop-wallpaper-travis-scott-iphone-cactus-jack-travis-scott-thumbnail.jpg')";
+        document.getElementById('creator').innerText = 'By Donut';
+        break;
+
+        case 6:
+        
+        document.getElementById('card1').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/502/119/desktop-wallpaper-nas-time-is-illmatic-digital.jpg')";
+        document.getElementById('card2').style.backgroundImage = "url('https://w0.peakpx.com/wallpaper/57/398/HD-wallpaper-nas-rap.jpg')";
+        document.getElementById('card3').style.backgroundImage = "url('https://e0.pxfuel.com/wallpapers/504/462/desktop-wallpaper-keep-fronting-tupac-90s-rappers-aesthetic-hip-hop-for-your-mobile-tablet-explore-nas-lil-nas-x-90-s-hip-hop-thumbnail.jpg')";
+        document.getElementById('creator').innerText = 'By Donut';
+        break;
+
+        case 7:
+        
+        document.getElementById('card1').style.backgroundImage = "url('https://www.udiscovermusic.com/wp-content/uploads/2020/12/SamSpratt_KidCudi_ManOnTheMoon3_AlbumCover_Web.jpg')";
+        document.getElementById('card2').style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/4/44/Kid_Cudi_2010_2_%28crop%29.jpg')";
+        document.getElementById('card3').style.backgroundImage = "url('https://c4.wallpaperflare.com/wallpaper/799/67/704/night-kid-cudi-hd-wallpaper-preview.jpg')";
+        document.getElementById('creator').innerText = 'By Donut';
+        break;
+
+
+        case 8:
+        
+        document.getElementById('card1').style.backgroundImage = "url('https://cdn.britannica.com/63/136163-050-3516BBE2/Jay-Z.jpg')";
+        document.getElementById('card2').style.backgroundImage = "url('https://i.redd.it/t1dk0f0rkjm41.jpg')";
+        document.getElementById('card3').style.backgroundImage = "url('https://imageio.forbes.com/specials-images/imageserve/5cf13d7c142c500008f46204/Jay-Z--On-the-Run-II--Tour-Opener---Cardiff/0x0.jpg?format=jpg&crop=2400,2952,x76,y4,safe&height=2952&width=2400')";
+        document.getElementById('creator').innerText = 'By Donut';
+        break;
+
+    default:
+      // Default functionality for more than three clicks
+      document.getElementById('card1').style.backgroundImage = "url('https://wallpapers.com/images/hd/kanye-iphone-qqin8egdxd07ln1f.jpg')";
+      document.getElementById('card2').style.backgroundImage = "url('https://i.pinimg.com/originals/e4/07/f1/e407f13e4691a24fb73b722cf7fc867f.jpg')";
+      document.getElementById('card3').style.backgroundImage = "url('https://wallpapercave.com/wp/wp5717294.jpg')";
+      document.getElementById('creator').innerText = 'By Donut';
+      clickCount = 0;
+      break;
+  }
+}
+</script>
+
+
+
+</html>
